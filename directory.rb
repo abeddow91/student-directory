@@ -5,11 +5,17 @@ def input_students
   students =[]
   #get the first name
   name = gets.chomp
+
   #while the name is not empty, repeat this code
   while !name.empty? do
     #add the student has to the array
-
-  students << {name: name, cohort: :november}
+  puts "Please enter which cohort they are in"
+  cohort = gets.chomp
+  if cohort.empty?
+    cohort = "Unknown"
+  end
+    
+  students << {name: name, cohort: cohort}
   puts "Now we have #{students.count} students"
   # get another name from the user
   name = gets.chomp
@@ -25,7 +31,9 @@ def print_header
 end
 
 def print(students)
-  students.each_with_index {|student, index | puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)" }
+  students.each_with_index do |student, index |
+      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+  end
 end
 
 def print_footer(students)
