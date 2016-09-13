@@ -21,7 +21,11 @@ def input_students
   name = gets.chomp
   end
   #return the array of students
-  students
+  if students.empty? == false
+    students
+  else
+    puts "There are not any students currently enrolled"
+  end
 end
 
 
@@ -40,6 +44,7 @@ def print_certain_letter(students)
 end
 
 def print(students)
+  if
   students.each_with_index do |student, index |
       puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
   end
