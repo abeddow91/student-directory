@@ -14,9 +14,9 @@ def input_students
   if cohort.empty?
     cohort = "Unknown"
   end
-    
+
   students << {name: name, cohort: cohort}
-  puts "Now we have #{students.count} students"
+  puts students.count ==1?  "Now we have #{students.count} student" :  "Now we have #{students.count} students"
   # get another name from the user
   name = gets.chomp
   end
@@ -37,8 +37,9 @@ def print(students)
 end
 
 def print_footer(students)
-  puts "Overall, we have #{students.count} great students"
+  puts students.count ==1? "Overall, we have #{students.count} great student" : "Overall, we have #{students.count} great students"
 end
+
 students = input_students
 print_header
 print(students)
