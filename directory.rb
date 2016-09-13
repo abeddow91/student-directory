@@ -4,13 +4,13 @@ def input_students
   #create an empty array
   students =[]
   #get the first name
-  name = gets.chomp
+  name = gets.chomp.capitalize
 
   #while the name is not empty, repeat this code
   while !name.empty? do
     #add the student has to the array
   puts "Please enter which cohort they are in"
-  cohort = gets.chomp
+  cohort = gets.chomp.capitalize
   if cohort.empty?
     cohort = "Unknown"
   end
@@ -32,7 +32,9 @@ end
 
 def print(students)
   students.each_with_index do |student, index |
+    if student[:name].start_with?("A")
       puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+    end
   end
 end
 
