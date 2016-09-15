@@ -7,25 +7,21 @@ def input_students
   name = gets.chomp.capitalize
 
   #while the name is not empty, repeat this code
-  while !name.empty? do
-    #add the student has to the array
-  puts "Please enter which cohort they are in"
-  cohort = gets.chomp.capitalize
-  if cohort.empty?
-    cohort = "Unknown"
-  end
+    while !name.empty? do
+      #add the student has to the array
+      puts "Please enter which cohort they are in"
+      cohort = gets.chomp.capitalize
+        if cohort.empty?
+        cohort = "Unknown"
+        end
 
-  students << {name: name, cohort: cohort}
-  puts students.count ==1?  "Now we have #{students.count} student" :  "Now we have #{students.count} students"
-  # get another name from the user
-  name = gets.chomp
-  end
+      students << {name: name, cohort: cohort}
+      puts students.count ==1?  "Now we have #{students.count} student" :  "Now we have #{students.count} students"
+      # get another name from the user
+      name = gets.chomp
+    end
   #return the array of students
-  if students.empty? == false
     students
-  else
-    puts "There are not any students currently enrolled"
-  end
 end
 
 
@@ -44,10 +40,13 @@ def print_certain_letter(students)
 end
 
 def print(students)
-  if
+    if students.empty? == false
   students.each_with_index do |student, index |
       puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
-  end
+    end
+    else
+      puts "There are not any students currently enrolled"
+    end
 end
 
 def print_12_letters(students)
