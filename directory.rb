@@ -14,8 +14,24 @@ def input_students
         if cohort.empty?
         cohort = "Unknown"
         end
+      puts  "Please enter the country of birth"
+      country=gets.chomp.capitalize
+        if country.empty?
+          country = "Unknown"
+        end
+      puts "Please enter height"
+        height=gets.chomp.capitalize
+        if height.empty?
+          height = "Unknown"
+        end
+      puts "Please enter hobbies"
+      hobbies = gets.chomp.capitalize
+      if hobbies.empty?
+        hobbies = "Unkown"
+      end
 
-      students << {name: name, cohort: cohort}
+
+      students << {name: name, cohort: cohort, country: country, height: height, hobbies: hobbies}
       puts students.count ==1?  "Now we have #{students.count} student" :  "Now we have #{students.count} students"
       # get another name from the user
       name = gets.chomp
@@ -23,6 +39,9 @@ def input_students
   #return the array of students
     students
 end
+
+#Our code only works with the student name and cohort.
+#Add more information: hobbies, country of birth, height, etc.
 
 
 def print_header
