@@ -30,14 +30,6 @@ def print_header
   puts "_____________"
 end
 
-def print_certain_letter(students)
-  puts "These are the students whose names begin with A"
-  students.each_with_index do |student, index |
-    if student[:name].start_with?("A")
-      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
-  end
-end
 
 def print(students)
     if students.empty? == false
@@ -49,16 +41,6 @@ def print(students)
     end
 end
 
-def print_12_letters(students)
-  puts "These are the students whose names have less than 12 letters"
-  students.each_with_index do |student, index |
-    if student[:name].length <=12
-      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
-    end
-  end
-end
-
-
 def print_footer(students)
   puts students.count ==1? "Overall, we have #{students.count} great student" : "Overall, we have #{students.count} great students"
 end
@@ -66,6 +48,4 @@ end
 students = input_students
 print_header
 print(students)
-print_certain_letter(students)
-print_12_letters(students)
 print_footer(students)
