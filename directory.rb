@@ -1,4 +1,8 @@
+
 def input_students
+  month = ["January", "February", "March","April","May","June","July","August",
+          "September","October","November","December", "Unknown"]
+
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   #create an empty array
@@ -14,6 +18,12 @@ def input_students
         if cohort.empty?
         cohort = "Unknown"
         end
+
+        while !month.include?(cohort)
+            puts "Sorry that's not a month, please enter a valid month"
+            cohort = gets.chomp.capitalize
+        end
+      cohort.to_sym
       puts  "Please enter the country of birth"
       country=gets.chomp.capitalize
         if country.empty?
@@ -45,23 +55,23 @@ end
 
 
 def print_header
-  puts "The students of Villains Academy"
-  puts "_____________"
+  puts "The students of Villains Academy".center(100)
+  puts "_____________".center(100)
 end
 
 
 def print(students)
     if students.empty? == false
   students.each_with_index do |student, index |
-      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)"
+      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
     end
     else
-      puts "There are not any students currently enrolled"
+      puts "There are not any students currently enrolled".center(100)
     end
 end
 
 def print_footer(students)
-  puts students.count ==1? "Overall, we have #{students.count} great student" : "Overall, we have #{students.count} great students"
+  puts students.count ==1? "Overall, we have #{students.count} great student".center(100) : "Overall, we have #{students.count} great students".center(100)
 end
 
 students = input_students
