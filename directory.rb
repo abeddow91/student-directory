@@ -5,7 +5,7 @@ def input_students
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
   #create an empty array
-  students =[]
+  @students =[]
   #get the first name
   name = gets.chomp.capitalize
 
@@ -40,13 +40,13 @@ def input_students
       end
 
 
-      students << {name: name, cohort: cohort, country: country, height: height, hobbies: hobbies}
-      puts students.count ==1?  "Now we have #{students.count} student" :  "Now we have #{students.count} students"
+      @students << {name: name, cohort: cohort, country: country, height: height, hobbies: hobbies}
+      puts @students.count ==1?  "Now we have #{@students.count} student" :  "Now we have #{@students.count} students"
       # get another name from the user
       name = gets.chomp
     end
   #return the array of students
-    students
+    @students
 end
 
 
@@ -56,9 +56,9 @@ def print_header
 end
 
 
-def print(students)
-    if students.empty? == false
-  students.each_with_index do |student, index |
+def print
+    if @students.empty? == false
+  @students.each_with_index do |student, index |
       puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
     end
     else
@@ -68,8 +68,8 @@ end
 
 
 
-def print_footer(students)
-  puts students.count ==1? "Overall, we have #{students.count} great student".center(100) : "Overall, we have #{students.count} great students".center(100)
+def print_footer
+  puts @students.count ==1? "Overall, we have #{@students.count} great student".center(100) : "Overall, we have #{@students.count} great students".center(100)
 end
 
 def print_menu
@@ -80,19 +80,19 @@ end
 
 def show_students
   print_header
-  print(students)
-  print_footer(students)
+  print
+  print_footer
 end
 
 def interactive_menu
-  students=[]
+  @students=[]
   loop do
 
     selection = gets.chomp
 #3. do what the user has asked
     case selection
     when "1"
-      students = input_students
+      input_students
     when "2"
 
     when "9"
@@ -102,6 +102,3 @@ def interactive_menu
     end
   end
 end
-
-
-interactive_menu
