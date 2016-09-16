@@ -78,6 +78,12 @@ def print_menu
   puts "9. Exit"
 end
 
+def show_students
+  print_header
+  print(students)
+  print_footer(students)
+end
+
 def interactive_menu
   students=[]
   loop do
@@ -88,9 +94,7 @@ def interactive_menu
     when "1"
       students = input_students
     when "2"
-      print_header
-      print(students)
-      print_footer(students)
+
     when "9"
       exit #this will cause the program to terminate
     else
