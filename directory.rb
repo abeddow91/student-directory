@@ -1,7 +1,6 @@
-
 def input_students
-  month = ["January", "February", "March","April","May","June","July","August",
-          "September","October","November","December", "Unknown"]
+  month = %w[January February March April May June July August September
+     October November December Unknown]
 
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
@@ -70,6 +69,19 @@ def print(students)
     end
 end
 
+def print_by_cohort(students)
+
+  puts "Which cohort would you like view? If all, type: All"
+     chosen_cohort = gets.chomp.capitalize
+     students.each_with_index do |student, index|
+      if chosen_cohort == "All"
+      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
+    elsif chosen_cohort == student[:cohort]
+        students.map{|c| c[:cohort]}
+        puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
+      end
+end
+
 def print_footer(students)
   puts students.count ==1? "Overall, we have #{students.count} great student".center(100) : "Overall, we have #{students.count} great students".center(100)
 end
@@ -78,3 +90,5 @@ students = input_students
 print_header
 print(students)
 print_footer(students)
+puts and by
+print_by_cohort(students)
