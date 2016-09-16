@@ -72,12 +72,15 @@ def print_footer(students)
   puts students.count ==1? "Overall, we have #{students.count} great student".center(100) : "Overall, we have #{students.count} great students".center(100)
 end
 
+def print_menu
+  puts "1. Input the students"
+  puts "2. Show the students"
+  puts "9. Exit"
+end
+
 def interactive_menu
   students=[]
   loop do
-    puts "1. Input the students"
-    puts "2. Show the students"
-    puts "9. Exit"
 
     selection = gets.chomp
 #3. do what the user has asked
