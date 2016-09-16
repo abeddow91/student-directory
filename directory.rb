@@ -49,9 +49,6 @@ def input_students
     students
 end
 
-#Our code only works with the student name and cohort.
-#Add more information: hobbies, country of birth, height, etc.
-
 
 def print_header
   puts "The students of Villains Academy".center(100)
@@ -69,26 +66,35 @@ def print(students)
     end
 end
 
-def print_by_cohort(students)
 
-  puts "Which cohort would you like view? If all, type: All"
-     chosen_cohort = gets.chomp.capitalize
-     students.each_with_index do |student, index|
-      if chosen_cohort == "All"
-      puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
-    elsif chosen_cohort == student[:cohort]
-        students.map{|c| c[:cohort]}
-        puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
-      end
-end
 
 def print_footer(students)
   puts students.count ==1? "Overall, we have #{students.count} great student".center(100) : "Overall, we have #{students.count} great students".center(100)
 end
 
-students = input_students
-print_header
-print(students)
-print_footer(students)
-puts and by
-print_by_cohort(students)
+def interactive_menu
+  students=[]
+  loop do
+    puts "1. Input the students"
+    puts "2. Show the students"
+    puts "9. Exit"
+
+    selection = gets.chomp
+#3. do what the user has asked
+    case selection
+    when "1"
+      students = input_students
+    when "2"
+      print_header
+      print(students)
+      print_footer(students)
+    when "9"
+      exit #this will cause the program to terminate
+    else
+      puts "I don't know what you meant, try again"
+    end
+  end
+end
+
+
+interactive_menu
