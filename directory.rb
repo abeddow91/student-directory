@@ -56,7 +56,7 @@ def print_header
 end
 
 
-def print
+def print_students_list
     if @students.empty? == false
   @students.each_with_index do |student, index |
       puts "#{index+1}. #{student[:name]} (#{student[:cohort]} cohort)".center(100)
@@ -80,25 +80,30 @@ end
 
 def show_students
   print_header
-  print
+  print_students_list
   print_footer
 end
 
-def interactive_menu
-  @students=[]
-  loop do
-
-    selection = gets.chomp
-#3. do what the user has asked
-    case selection
+def process(selection)
+  case selection
     when "1"
       input_students
     when "2"
-
+      show_students
     when "9"
       exit #this will cause the program to terminate
     else
       puts "I don't know what you meant, try again"
-    end
   end
 end
+
+
+def interactive_menu
+  loop do
+    print_menu
+    process(gets.chomp)
+  end
+end
+
+
+interactive_menu
