@@ -1,11 +1,11 @@
+  @students =[]
 def input_students
   month = %w[January February March April May June July August September
      October November December Unknown]
 
   puts "Please enter the names of the students"
   puts "To finish, just hit return twice"
-  #create an empty array
-  @students =[]
+
   #get the first name
   name = STDIN.gets.chomp.capitalize
 
